@@ -1,0 +1,27 @@
+---
+when:
+  - event: [pull_request, tag]
+  - event: [push, manual]
+    branch:
+      - ${CI_REPO_DEFAULT_BRANCH}
+
+variables:
+  - &brew_base
+    image: docker.io/homebrew/brew:4.4
+    depends_on: []
+    environment:
+      HOMEBREW_NO_AUTO_UPDATE: "True"
+      HOMEBREW_NO_ENV_HINTS: "True"
+
+steps:
+  - name: test-git-sv
+    <<: *brew_base
+    commands:
+      - brew style ./Formula/git-sv.rb
+      - brew update
+      - brew upgrade
+      - brew install ./Formula/git-sv.rb
+      - brew test ./Formula/git-sv.rb
+
+depends_on:
+  - lint

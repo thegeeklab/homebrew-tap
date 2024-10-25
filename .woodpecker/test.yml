@@ -10,6 +10,8 @@ variables:
     image: docker.io/homebrew/brew:4.4.2
     depends_on: []
     environment:
+      HOMEBREW_COLOR: "true"
+      HOMEBREW_DEVELOPER: "true"
       HOMEBREW_NO_AUTO_UPDATE: "True"
       HOMEBREW_NO_ENV_HINTS: "True"
 
@@ -18,7 +20,5 @@ steps:
     <<: *brew_base
     commands:
       - brew style ./Formula/git-sv.rb
-      - brew update
-      - brew upgrade
       - brew install ./Formula/git-sv.rb
       - brew test ./Formula/git-sv.rb

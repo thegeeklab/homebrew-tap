@@ -11,6 +11,8 @@ class GitSv < Formula
     strategy :github_latest
   end
 
+  depends_on "go" => :build
+
   def install
     build_date = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
     ldflags = "-s -w -X main.BuildVersion=v#{version} -X main.BuildDate=#{build_date}"

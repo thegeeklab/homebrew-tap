@@ -7,7 +7,7 @@ when:
 
 variables:
   - &brew_base
-    image: docker.io/homebrew/brew:4.4
+    image: docker.io/homebrew/brew:4.4.2
     depends_on: []
     environment:
       HOMEBREW_NO_AUTO_UPDATE: "True"

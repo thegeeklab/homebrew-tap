@@ -6,8 +6,8 @@ when:
       - ${CI_REPO_DEFAULT_BRANCH}
 
 variables:
+  - &brew_image docker.io/homebrew/brew:4.4.2
   - &brew_base
-    image: docker.io/homebrew/brew:4.4.2
     depends_on: []
     environment:
       HOMEBREW_COLOR: "true"
@@ -17,6 +17,7 @@ variables:
 
 steps:
   - name: test-git-sv
+    image: *brew_image
     <<: *brew_base
     commands:
       - brew style ./Formula/git-sv.rb

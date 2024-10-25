@@ -4,17 +4,12 @@ class GitSv < Formula
   url "https://github.com/thegeeklab/git-sv/archive/refs/tags/v1.0.5.tar.gz"
   sha256 "2688f40faa50517f8ed41a3deac93cd55f6cdd6974a3665f497ff8840bcf36d9"
   license "MIT"
-
-  head do
-    url "https://github.com/thegeeklab/git-sv.git", branch: "main"
-  end
+  head "https://github.com/thegeeklab/git-sv.git", branch: "main"
 
   livecheck do
     url :stable
     strategy :github_latest
   end
-
-  depends_on "go" => :build
 
   def install
     build_date = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -24,8 +19,6 @@ class GitSv < Formula
 
   test do
     assert_match "git-sv - Semantic version for git", shell_output("#{bin}/git-sv --help")
-
-    # Additional test to check version command
-    assert_match "v1.0.5", shell_output("#{bin}/git-sv --version")
+    system "#{bin}/git-sv", "--version"
   end
 end

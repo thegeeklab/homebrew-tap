@@ -22,6 +22,3 @@ steps:
       - brew upgrade
       - brew install ./Formula/git-sv.rb
       - brew test ./Formula/git-sv.rb
-
-depends_on:
-  - lint

@@ -3,7 +3,11 @@
   "extends": ["github>thegeeklab/renovate-presets"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "description": "Automerge CI deps",
+      "groupName": "ci deps non-major",
+      "matchManagers": ["woodpecker"],
+      "matchPackagePatterns": ["homebrew/brew"],
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     }
   ]

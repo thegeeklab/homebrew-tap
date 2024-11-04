@@ -9,6 +9,13 @@
       "matchPackagePatterns": ["homebrew/brew"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "description": "Automerge tap updates",
+      "groupName": "homebrew updates",
+      "matchManagers": ["homebrew"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
     }
   ]
 }

@@ -1,8 +1,8 @@
 class GitSv < Formula
   desc "Semantic versioning tool for git based on conventional commits"
   homepage "https://github.com/thegeeklab/git-sv"
-  url "https://github.com/thegeeklab/git-sv/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "f227b83b00eb5dc1b7cd509d9fa36b0f0787dd5f07cfb9ba0fe3417f9e669b39"
+  url "https://github.com/thegeeklab/git-sv/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "dcbe0ee1b900396368c81bf437b11834176812474fffc10b5240ecad036b9bc7"
   license "MIT"
   head "https://github.com/thegeeklab/git-sv.git", branch: "main"
 

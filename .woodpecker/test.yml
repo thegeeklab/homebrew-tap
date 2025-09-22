@@ -6,7 +6,7 @@ when:
       - ${CI_REPO_DEFAULT_BRANCH}
 
 variables:
-  - &brew_image docker.io/homebrew/brew:4.6.11
+  - &brew_image docker.io/homebrew/brew:4.6.12
   - &brew_base
     depends_on: []
     environment:

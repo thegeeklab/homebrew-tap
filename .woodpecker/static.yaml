@@ -13,18 +13,18 @@ steps:
       - markdownlint 'README.md' 'CONTRIBUTING.md'
 
   - name: spellcheck
-    image: quay.io/thegeeklab/alpine-tools
+    image: ghcr.io/streetsidesoftware/cspell
     depends_on: []
     commands:
-      - spellchecker --files 'README.md' 'CONTRIBUTING.md' -d .dictionary -p spell indefinite-article syntax-urls
-    environment:
-      FORCE_COLOR: "true"
+      - cspell-cli lint . --gitignore --color
 
   - name: link-validation
-    image: docker.io/lycheeverse/lychee
-    depends_on: []
+    image: docker.io/lycheeverse/lychee:0.23
     commands:
       - lychee --no-progress --format detailed README.md
+    environment:
+      GITHUB_TOKEN:
+        from_secret: github_token_ro
 
 depends_on:
   - test

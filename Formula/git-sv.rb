@@ -6,6 +6,7 @@ class GitSv < Formula
   license "MIT"
   head "https://github.com/thegeeklab/git-sv.git", branch: "main"
 
+  # cspell:words livecheck
   livecheck do
     url :stable
     strategy :github_latest
